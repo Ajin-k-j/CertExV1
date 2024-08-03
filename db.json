@@ -1,0 +1,98 @@
+{
+  "certifications": [
+    {
+      "id": 1,
+      "provider": "AWS",
+      "certification_name": "AWS Certified Solutions Architect – Associate",
+      "level": "Intermediate",
+      "description": "Learn the essentials of building secure and reliable applications on the AWS platform.",
+      "tags": [
+        "cloud",
+        "AWS",
+        "architecture"
+      ],
+      "official_link": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+      "critical": "high"
+    },
+    {
+      "id": 2,
+      "provider": "Microsoft",
+      "certification_name": "Microsoft Certified: Azure Fundamentals",
+      "level": "Beginner",
+      "description": "Gain foundational knowledge of cloud services and how those services are provided with Microsoft Azure.",
+      "tags": [
+        "Azure",
+        "cloud",
+        "fundamentals"
+      ],
+      "official_link": "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/",
+      "critical": "medium"
+    },
+    {
+      "id": 3,
+      "provider": "Google",
+      "certification_name": "Google Professional Data Engineer",
+      "level": "Expert",
+      "description": "Design, build, and manage scalable data processing systems on the Google Cloud Platform.",
+      "tags": [
+        "data",
+        "Google Cloud",
+        "engineering"
+      ],
+      "official_link": "https://cloud.google.com/certification/data-engineer",
+      "critical": "low"
+    }
+  ],
+  "nominations": [
+    {
+      "id": "ee63",
+      "certification_id": 2,
+      "planned_exam_month": "2024-09",
+      "motivation_description": "I just wanna do this",
+      "employee_id": 123,
+      "department_approval": "pending",
+      "l_and_d_approval": "pending",
+      "exam_date": null,
+      "exam_status": "pending",
+      "upload_certificate_status": "not uploaded",
+      "skill_matrix_status": "not updated",
+      "reimbursement_status": "not complete",
+      "nomination_status": "pending"
+    },
+    {
+      "id": "66ef",
+      "certification_id": 3,
+      "planned_exam_month": "2025-01",
+      "motivation_description": "Financial year based nominations",
+      "employee_id": 123
+    },
+    {
+      "id": "a128",
+      "certification_id": 3,
+      "planned_exam_month": "2024-09",
+      "motivation_description": "asdefsab",
+      "employee_id": 123
+    }
+  ],
+  "financial_years": [
+    {
+      "id": 1,
+      "from_date": "2024-03-01",
+      "to_date": "2025-03-31"
+    }
+  ],
+  "providers": [
+    "AWS",
+    "Microsoft",
+    "Google",
+    "IBM",
+    "Oracle"
+  ],
+  "categories": [
+    "cloud",
+    "data",
+    "architecture",
+    "fundamentals",
+    "engineering"
+  ]
+}

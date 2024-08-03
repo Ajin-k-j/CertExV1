@@ -1,0 +1,25 @@
+install json server: npm install json-server --save-dev  
+run json server:json-server --watch db.json --port 5000
+
+
+
+
+
+
+
+const newNomination = {
+        certification_id: id,
+        planned_exam_month: plannedExamMonth,
+        motivation_description: motivation,
+        employee_id: getEmployeeId(),
+        department_approval: "pending",
+        l_and_d_approval: "pending",
+        exam_date: null,
+        exam_status: "pending",
+        upload_certificate_status: "not uploaded",
+        skill_matrix_status: "not updated",
+        reimbursement_status: "not complete",
+        nomination_status: "pending",
+      };
+
+

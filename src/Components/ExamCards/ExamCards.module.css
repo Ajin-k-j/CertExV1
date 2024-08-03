@@ -1,0 +1,19 @@
+.card {
+    transition: transform 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Stretches the content */
+  }
+  .card:hover {
+    scale: 1;
+    transform: scale();
+    cursor: pointer;
+    transform: scale(1.05); /* Increase size by 5% */
+  }
+  .chipContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2px;
+  }
+  
