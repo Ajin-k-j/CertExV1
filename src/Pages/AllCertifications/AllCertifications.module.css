@@ -1,6 +1,7 @@
 .container{
   display: flex;
   margin: 10px;
+  background-color:white;
 }
 .LeftSection{
   margin: 10px;
