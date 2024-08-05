@@ -1,0 +1,68 @@
+{
+    "user_id": 123,
+    "certifications": [
+        {
+            "certification_id": 1,
+            "Certification Name": "AWS Certified Solutions Architect – Associate",
+            "Provider": "AWS",
+            "Level": "Intermediate",
+            "Category": "Cloud Engineer",
+            "From Date": "2023-01-15",
+            "Expiry Date": "2026-01-15"
+        },
+        {
+            "certification_id": 2,
+            "Certification Name": "Google Cloud Professional Data Engineer",
+            "Provider": "GCP",
+            "Level": "Expert",
+            "Category": "Data Scientist",
+            "From Date": "2022-08-22",
+            "Expiry Date": "2025-08-22"
+        },
+        {
+            "certification_id": 3,
+            "Certification Name": "Microsoft Certified: Azure Fundamentals",
+            "Provider": "Azure",
+            "Level": "Beginner",
+            "Category": "IT Support Specialist",
+            "From Date": "2023-03-10",
+            "Expiry Date": "2026-03-10"
+        },
+        {
+            "certification_id": 4,
+            "Certification Name": "AWS Certified Developer – Associate",
+            "Provider": "AWS",
+            "Level": "Intermediate",
+            "Category": "Software Developer",
+            "From Date": "2023-05-20",
+            "Expiry Date": "2026-05-20"
+        },
+        {
+            "certification_id": 5,
+            "Certification Name": "Google Cloud Professional Cloud Architect",
+            "Provider": "GCP",
+            "Level": "Expert",
+            "Category": "Cloud Architect",
+            "From Date": "2022-11-05",
+            "Expiry Date": "2025-11-05"
+        },
+        {
+            "certification_id": 6,
+            "Certification Name": "Microsoft Certified: Azure Administrator Associate",
+            "Provider": "Azure",
+            "Level": "Intermediate",
+            "Category": "Systems Administrator",
+            "From Date": "2023-06-18",
+            "Expiry Date": "2026-06-18"
+        },
+        {
+            "certification_id": 7,
+            "Certification Name": "AWS Certified Security – Specialty",
+            "Provider": "AWS",
+            "Level": "Expert",
+            "Category": "Security Analyst",
+            "From Date": "2023-04-12",
+            "Expiry Date": "2026-04-12"
+        }
+    ]
+}
