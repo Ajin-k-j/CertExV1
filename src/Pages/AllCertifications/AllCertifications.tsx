@@ -3,7 +3,6 @@ import axios from "axios";
 import styles from "./AllCertifications.module.css";
 import TopFilter from "../../Components/TopFilterComponent/TopFilter";
 import LeftFilter from "../../Components/LeftFilterComponent/LeftFilter";
-import FilterChips from "../../Components/FilterChipComponent/FilterChip";
 import CardsDisplay from "../../Components/CardsDisplay/CardsDisplay";
 
 // Define your types
@@ -125,7 +124,7 @@ const AllCertifications: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.LeftSection}>
-      <LeftFilter
+        <LeftFilter
           selectedProviders={selectedProviders}
           setSelectedProviders={setSelectedProviders}
           selectedCategories={selectedCategories}
@@ -134,16 +133,17 @@ const AllCertifications: React.FC = () => {
         />
       </div>
       <div className={styles.MiddleSection}>
-      <TopFilter
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        selectedLevel={selectedLevel}
-        setSelectedLevel={setSelectedLevel}
-        sortOption={sortOption}
-        setSortOption={setSortOption}
-      />
-      <div className={styles.CardsSection}>
-      <FilterChips
+        <TopFilter
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          selectedLevel={selectedLevel}
+          setSelectedLevel={setSelectedLevel}
+          sortOption={sortOption}
+          setSortOption={setSortOption}
+        />
+        <div className={styles.CardsSection}>
+          <CardsDisplay
+            data={filteredData}
             searchQuery={searchQuery}
             selectedLevel={selectedLevel}
             sortOption={sortOption}
@@ -151,10 +151,8 @@ const AllCertifications: React.FC = () => {
             selectedCategories={selectedCategories}
             removeFilter={removeFilter}
           />
-      <CardsDisplay data={filteredData} />
+        </div>
       </div>
-      </div>
-      
     </div>
   );
 };

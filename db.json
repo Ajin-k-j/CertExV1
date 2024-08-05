@@ -12,11 +12,12 @@
         "architecture"
       ],
       "official_link": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
-      "critical": "high"
+      "critical": "high",
+      "views":100
     },
     {
       "id": 2,
-      "provider": "Microsoft",
+      "provider": "Microsoft-high",
       "certification_name": "Microsoft Certified: Azure Fundamentals",
       "level": "Beginner",
       "description": "Gain foundational knowledge of cloud services and how those services are provided with Microsoft Azure.",
@@ -26,7 +27,8 @@
         "fundamentals"
       ],
       "official_link": "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/",
-      "critical": "medium"
+      "critical": "medium",
+      "views":350
     },
     {
       "id": 3,
@@ -40,7 +42,113 @@
         "engineering"
       ],
       "official_link": "https://cloud.google.com/certification/data-engineer",
-      "critical": "low"
+      "critical": "low",
+      "views":50
+    },
+    {
+      "id": 4,
+      "provider": "AWS",
+      "certification_name": "AWS Certified Solutions Architect – Associate",
+      "level": "Intermediate",
+      "description": "Learn the essentials of building secure and reliable applications on the AWS platform.",
+      "tags": [
+        "cloud",
+        "AWS",
+        "architecture"
+      ],
+      "official_link": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+      "critical": "high",
+      "views":100
+    },
+    {
+      "id": 5,
+      "provider": "Microsoft",
+      "certification_name": "Microsoft Certified: Azure Fundamentals",
+      "level": "Beginner",
+      "description": "Gain foundational knowledge of cloud services and how those services are provided with Microsoft Azure.",
+      "tags": [
+        "Azure",
+        "cloud",
+        "fundamentals"
+      ],
+      "official_link": "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/",
+      "critical": "medium",
+      "views":100
+    },
+    {
+      "id": 6,
+      "provider": "Google",
+      "certification_name": "Google Professional Data Engineer",
+      "level": "Expert",
+      "description": "Design, build, and manage scalable data processing systems on the Google Cloud Platform.",
+      "tags": [
+        "data",
+        "Google Cloud",
+        "engineering"
+      ],
+      "official_link": "https://cloud.google.com/certification/data-engineer",
+      "critical": "low",
+      "views":100
+    },
+    {
+      "id": 7,
+      "provider": "Google",
+      "certification_name": "Google Professional Data Engineer",
+      "level": "Expert",
+      "description": "Design, build, and manage scalable data processing systems on the Google Cloud Platform.",
+      "tags": [
+        "data",
+        "Google Cloud",
+        "engineering"
+      ],
+      "official_link": "https://cloud.google.com/certification/data-engineer",
+      "critical": "low",
+      "views":100
+    },
+    {
+      "id": 8,
+      "provider": "AWS",
+      "certification_name": "AWS Certified Solutions Architect – Associate",
+      "level": "Intermediate",
+      "description": "Learn the essentials of building secure and reliable applications on the AWS platform.",
+      "tags": [
+        "cloud",
+        "AWS",
+        "architecture"
+      ],
+      "official_link": "https://aws.amazon.com/certification/certified-solutions-architect-associate/",
+      "critical": "high",
+      "views":100
+    },
+    {
+      "id": 9,
+      "provider": "Microsoft",
+      "certification_name": "Microsoft Certified: Azure Fundamentals",
+      "level": "Beginner",
+      "description": "Gain foundational knowledge of cloud services and how those services are provided with Microsoft Azure.",
+      "tags": [
+        "Azure",
+        "cloud",
+        "fundamentals"
+      ],
+      "official_link": "https://learn.microsoft.com/en-us/certifications/azure-fundamentals/",
+      "critical": "medium",
+      "views":100
+    },
+    {
+      "id": 10,
+      "provider": "IBM",
+      "certification_name": "Google Professional Data Engineer",
+      "level": "Expert",
+      "description": "Design, build, and manage scalable data processing systems on the Google Cloud Platform.",
+      "tags": [
+        "data",
+        "Google Cloud",
+        "engineering"
+      ],
+      "official_link": "https://cloud.google.com/certification/data-engineer",
+      "critical": "low",
+      "views":100
     }
   ],
   "nominations": [
@@ -72,13 +180,28 @@
       "planned_exam_month": "2024-09",
       "motivation_description": "asdefsab",
       "employee_id": 123
+    },
+    {
+      "id": "63e2",
+      "certification_id": 1,
+      "planned_exam_month": "2025-02",
+      "motivation_description": "gfxfmsmfxs",
+      "employee_id": 123,
+      "department_approval": "pending",
+      "l_and_d_approval": "pending",
+      "exam_date": null,
+      "exam_status": "pending",
+      "upload_certificate_status": "not uploaded",
+      "skill_matrix_status": "not updated",
+      "reimbursement_status": "not complete",
+      "nomination_status": "pending"
     }
   ],
   "financial_years": [
     {
       "id": 1,
       "from_date": "2024-03-01",
-      "to_date": "2025-03-31"
+      "to_date": "2025-06-31"
     }
   ],
   "providers": [
@@ -93,6 +216,7 @@
     "data",
     "architecture",
     "fundamentals",
-    "engineering"
+    "engineering",
+    "AI"
   ]
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import Chip from "@mui/material/Chip";
-import { Typography } from "@mui/material";
-
+import styles from './FilterChip.module.css'
 interface FilterChipsProps {
   searchQuery: string;
   selectedLevel: "Beginner" | "Intermediate" | "Expert" | "all";
@@ -20,13 +19,12 @@ const FilterChips: React.FC<FilterChipsProps> = ({
   removeFilter,
 }) => {
   return (
-    <div>
-      <Typography variant="h6">Selected Filters:</Typography>
+    <div className={styles.container}>
       {searchQuery && (
         <Chip
           label={`Search: ${searchQuery}`}
           onDelete={() => removeFilter("searchQuery", searchQuery)}
-          style={{ margin: 4 }}
+          style={{ margin: 4}}
         />
       )}
       {selectedLevel !== "all" && (
@@ -36,7 +34,7 @@ const FilterChips: React.FC<FilterChipsProps> = ({
           style={{ margin: 4 }}
         />
       )}
-      {sortOption && (
+      {sortOption !== "latest" && (
         <Chip
           label={`Sort: ${sortOption}`}
           onDelete={() => removeFilter("sortOption", sortOption)}

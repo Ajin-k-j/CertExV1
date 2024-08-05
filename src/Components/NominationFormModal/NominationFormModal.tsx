@@ -54,6 +54,14 @@ const NominationFormModal: React.FC<NominationFormModalProps> = ({
         planned_exam_month: plannedExamMonth,
         motivation_description: motivation,
         employee_id: getEmployeeId(),
+        department_approval: "pending",
+        l_and_d_approval: "pending",
+        exam_date: null,
+        exam_status: "pending",
+        upload_certificate_status: "not uploaded",
+        skill_matrix_status: "not updated",
+        reimbursement_status: "not complete",
+        nomination_status: "pending",
       };
 
       await axios.post("http://localhost:5000/nominations", newNomination);
