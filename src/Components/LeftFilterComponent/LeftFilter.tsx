@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CheckboxFilter from "../CheckboxFilter/CheckboxFilter";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 
 interface LeftFilterProps {
   selectedProviders: string[];
@@ -51,9 +51,16 @@ const LeftFilter: React.FC<LeftFilterProps> = ({
   };
 
   return (
-    <div>
-      <div style={{ marginBottom: "16px" }}>
-        <Typography variant="h6" component="div" style={{ display: "inline" }}>
+    <Box
+      sx={{
+        backgroundColor: "#ffffff", // Set background color to white
+        padding: 3, // Optional: Add padding for better appearance
+        borderRadius: 1, // Optional: Add rounded corners
+        height: "auto", // Ensure it takes full height of the parent container
+      }}
+    >
+      <div>
+        <Typography variant="h5" component="div" style={{ display: "inline" }}>
           Filters
         </Typography>
         <Typography
@@ -63,6 +70,7 @@ const LeftFilter: React.FC<LeftFilterProps> = ({
             color: "blue",
             marginLeft: "8px",
             cursor: "pointer",
+            paddingLeft:"2rem"
           }}
           onClick={handleClearAll}
         >
@@ -87,7 +95,7 @@ const LeftFilter: React.FC<LeftFilterProps> = ({
           placeholder="Search Categories"
         />
       </div>
-    </div>
+    </Box>
   );
 };
 

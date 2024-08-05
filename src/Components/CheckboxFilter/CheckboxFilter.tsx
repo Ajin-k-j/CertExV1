@@ -29,10 +29,15 @@ const CheckboxFilter: React.FC<CheckboxFilterProps> = ({
   return (
     <div>
       <TextField
-        label={placeholder}
-        variant="outlined"
         value={searchTerm}
         onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
+        placeholder={placeholder}
+        variant="outlined"
+        size="small" // Reduce height
+        sx={{
+          marginBottom: "8px",
+          margin:"1px"
+        }}
         fullWidth
       />
       <Box

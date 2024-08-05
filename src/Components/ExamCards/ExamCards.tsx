@@ -53,12 +53,19 @@ const ExamCards: React.FC<ExamCardsProps> = ({
     level === "Beginner" ? "green" :
     level === "Intermediate" ? "blue" : "red";
 
+  // Truncate description to first 15 words
+  const truncateDescription = (text: string, limit: number) => {
+    const words = text.split(' ');
+    if (words.length <= limit) return text;
+    return `${words.slice(0, limit).join(' ')}...`;
+  };
+
   return (
     <div>
       <Card
         className={styles.card}
         sx={{
-          height: "auto",
+          height: "12.5rem", // Fixed height for uniformity
           width: "14.1rem",
           borderTop: `4px solid ${borderColor}`,
           borderLeft: "1px solid rgb(146, 145, 145)",
@@ -66,14 +73,20 @@ const ExamCards: React.FC<ExamCardsProps> = ({
           borderBottom: "1px solid rgb(146, 145, 145)",
           borderRadius: "10px",
           margin: "5px",
-          cursor: "pointer", // Make it look clickable
+          cursor: "pointer",
           transition: "transform 0.3s ease-in-out",
           display: "flex",
           flexDirection: "column",
         }}
         onClick={handleClickOpen}
       >
-        <CardContent>
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent:"center"
+          }}
+        >
           <Typography sx={{ fontSize: 11 }} color="text.secondary" gutterBottom>
             {provider}
           </Typography>
@@ -86,8 +99,11 @@ const ExamCards: React.FC<ExamCardsProps> = ({
           >
             {level}
           </Typography>
-          <Typography variant="body2" sx={{ fontSize: 13 }}>
-            {description}
+          <Typography
+            variant="body2"
+            sx={{ fontSize: 13, color: "grey", overflow: "hidden", textOverflow: "ellipsis", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical" }}
+          >
+            {truncateDescription(description, 15)}
           </Typography>
           <div className={styles.chipContainer}>
             {tags.map((tag, index) => (
@@ -95,9 +111,9 @@ const ExamCards: React.FC<ExamCardsProps> = ({
                 key={index}
                 label={tag}
                 sx={{
-                  fontSize: 8,
-                  height: "1.5rem",
-                  margin: "1px",
+                  fontSize: 10,
+                  height: "1.1rem",
+                  margin: ".11rem",
                   backgroundColor: `hsl(${index * 40}, 70%, 80%)`,
                 }}
               />

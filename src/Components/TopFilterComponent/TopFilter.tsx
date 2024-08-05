@@ -1,5 +1,6 @@
 import React from "react";
-import { TextField, MenuItem, Select, InputLabel, FormControl, SelectChangeEvent, Box } from "@mui/material";
+import { TextField, MenuItem, Select, FormControl, SelectChangeEvent, Box, InputAdornment } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
 
 // Define types for the filter options
 type CertificationLevel = "Beginner" | "Intermediate" | "Expert" | "all";
@@ -12,6 +13,7 @@ interface TopFilterProps {
   setSelectedLevel: React.Dispatch<React.SetStateAction<CertificationLevel>>;
   sortOption: SortOption;
   setSortOption: React.Dispatch<React.SetStateAction<SortOption>>;
+  inputHeight?: string; // Optional height property for flexibility
 }
 
 const TopFilter: React.FC<TopFilterProps> = ({
@@ -21,6 +23,7 @@ const TopFilter: React.FC<TopFilterProps> = ({
   setSelectedLevel,
   sortOption,
   setSortOption,
+  inputHeight = '2rem', // Default height if none provided
 }) => {
   // Handle change for the level dropdown
   const handleLevelChange = (event: SelectChangeEvent<CertificationLevel>) => {
@@ -37,44 +40,73 @@ const TopFilter: React.FC<TopFilterProps> = ({
       display="flex"
       flexDirection="row"
       alignItems="center"
-      gap={1} // Adjust gap between filters as needed
+      gap={2} // Adjust gap between filters as needed
       sx={{ marginBottom: 1 }}
     >
       <TextField
-        label="Search"
-        variant="outlined"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         size="small"
-        sx={{ flex: 1, width:"100%"}}
+        sx={{ 
+          backgroundColor: "#ffffff", // Set background color to white
+          borderRadius: 1, // Add border radius
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              border: 'none', // Remove the outline
+            },
+          },
+          height: inputHeight, // Set height property
+          width: '300px', // Increase width if needed
+          justifyContent:"center",
+        }}
+        placeholder="Search for certifications"
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
+              <SearchIcon />
+            </InputAdornment>
+          ),
+        }}
       />
-      <FormControl size="small" sx={{ flex: 1 }}>
-        <InputLabel>Level</InputLabel>
-        <Select
-          value={selectedLevel}
-          onChange={handleLevelChange}
-          label="Level"
-          sx={{ width: "100%" }}
-        >
-          <MenuItem value="all">All</MenuItem>
-          <MenuItem value="Beginner">Beginner</MenuItem>
-          <MenuItem value="Intermediate">Intermediate</MenuItem>
-          <MenuItem value="Expert">Expert</MenuItem>
-        </Select>
-      </FormControl>
-      <FormControl size="small" sx={{ flex: 1 }}>
-        <InputLabel>Sort By</InputLabel>
-        <Select
-          value={sortOption}
-          onChange={handleSortChange}
-          label="Sort By"
-          sx={{ width: "100%" }}
-        >
-          <MenuItem value="latest">Latest</MenuItem>
-          <MenuItem value="popular">Popular</MenuItem>
-          <MenuItem value="oldest">Oldest</MenuItem>
-        </Select>
-      </FormControl>
+      <Box display="flex" alignItems="center" gap={1}>
+        <span>Level</span>
+        <FormControl size="small" sx={{ width: "auto", backgroundColor: "#ffffff" }}>
+          <Select
+            value={selectedLevel}
+            onChange={handleLevelChange}
+            sx={{ 
+              width: "120px", // Adjust width as needed
+              borderRadius: 1, // Add border radius
+              height: inputHeight, // Set height property
+              // '.MuiOutlinedInput-notchedOutline': { border: 0 },
+            }}
+          >
+            <MenuItem value="all">All</MenuItem>
+            <MenuItem value="Beginner">Beginner</MenuItem>
+            <MenuItem value="Intermediate">Intermediate</MenuItem>
+            <MenuItem value="Expert">Expert</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
+      <Box display="flex" alignItems="center" gap={1}>
+        <span>Sort By</span>
+        <FormControl size="small" sx={{ width: "auto", backgroundColor: "#ffffff" }}>
+          <Select
+            value={sortOption}
+            onChange={handleSortChange}
+            sx={{ 
+              width: "120px", // Adjust width as needed
+              borderRadius: 1, // Add border radius
+              height: inputHeight, // Set height property
+              // '.MuiOutlinedInput-notchedOutline': { border: 0 },
+            }}
+          >
+            <MenuItem value="latest">Latest</MenuItem>
+            <MenuItem value="popular">Popular</MenuItem>
+            <MenuItem value="oldest">Oldest</MenuItem>
+          </Select>
+        </FormControl>
+      </Box>
     </Box>
   );
 };
