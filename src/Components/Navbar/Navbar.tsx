@@ -1,49 +1,123 @@
-import React from 'react';
-import { AppBar, Toolbar, Typography, Box, Button, IconButton, Avatar } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import SettingsIcon from '@mui/icons-material/Settings';
+import React, { useState, useEffect } from 'react';
+import { AppBar, Toolbar, Typography, IconButton, Button, Menu, MenuItem, Box } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import DepartmentIcon from '@mui/icons-material/Security';
+import UserIcon from '@mui/icons-material/Person';
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [hoverIndex, setHoverIndex] = React.useState<number | null>(null);
+  const [isDepartment, setIsDepartment] = useState<boolean>(() => {
+    // Retrieve the saved state from localStorage, or default to true
+    const savedState = localStorage.getItem('isDepartment');
+    return savedState ? JSON.parse(savedState) : true;
+  });
+
+  useEffect(() => {
+    // Save the current state to localStorage whenever it changes
+    localStorage.setItem('isDepartment', JSON.stringify(isDepartment));
+  }, [isDepartment]);
+
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleMouseEnter = (index: number) => {
+    setHoverIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoverIndex(null);
+  };
+
+  const toggleDepartmentUser = () => {
+    setIsDepartment(!isDepartment);
+  };
+
   return (
-    <AppBar position="static" sx={{ height: '50px', backgroundColor: '#fff' }}>
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography variant="h6" sx={{ color: '#f44336', fontWeight: 'bold', mr: 2 }}>
-            certEx
-          </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <MenuIcon sx={{ color: '#2196f3' }} />
-            <Typography variant="body1" sx={{ color: '#2196f3', ml: 1 }}>
-              Available Certifications
-            </Typography>
-          </Box>
-        </Box>
-
-        <Typography variant="body1" sx={{ color: '#212529', mr: 4 }}>
-          User Dashboard
+    <AppBar position="static" color="transparent" elevation={0} sx={{ marginBottom: 1, backgroundColor: 'white', borderRadius: '10px', height: 50 }}>
+      <Toolbar sx={{ minHeight: '48px' }}> {/* Adjust the minHeight to reduce navbar height */}
+        <Typography variant="h6" sx={{ flexGrow: 1, color: 'red', fontWeight: 'bold', fontSize: '1.2rem' }}>
+          CertEx
         </Typography>
-
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Button variant="contained" sx={{ backgroundColor: '#fff', border: '1px solid #ccc', color: '#212529', mr: 2 }}>
-            <AccountCircleIcon sx={{ color: '#2196f3', mr: 1 }} />
-            Department
-          </Button>
-          <Avatar sx={{ backgroundColor: '#2196f3', mr: 2 }} />
-          <Typography variant="body1" sx={{ color: '#212529', mr: 2 }}>
-            User
-          </Typography>
-          <IconButton aria-label="notifications" sx={{ mr: 2 }}>
-            <NotificationsIcon />
-          </IconButton>
-          <IconButton aria-label="settings">
-            <SettingsIcon />
-          </IconButton>
-          <IconButton aria-label="user">
-            <AccountCircleIcon sx={{ color: '#212529' }} />
-          </IconButton>
-        </Box>
+        {isDepartment ? (
+          <></> // No options shown when isDepartment is true
+        ) : (
+          <>
+            <Button
+              color="inherit"
+              onMouseEnter={() => handleMouseEnter(0)}
+              onMouseLeave={handleMouseLeave}
+              sx={{
+                color: hoverIndex === 0 ? 'blue' : 'inherit',
+                borderBottom: hoverIndex === 0 ? '2px solid blue' : 'none',
+                fontSize: '0.75rem', // Small font size
+                padding: '4px 8px', // Reduced padding
+                transition: 'font-size 0.3s ease', // Smooth transition
+              }}
+            >
+              {hoverIndex === 0 && <HomeIcon sx={{ marginRight: 0.5, fontSize: '1rem' }} />}
+              Available Certifications
+            </Button>
+            <Button
+              color="inherit"
+              onMouseEnter={() => handleMouseEnter(1)}
+              onMouseLeave={handleMouseLeave}
+              sx={{
+                color: hoverIndex === 1 ? 'blue' : 'inherit',
+                borderBottom: hoverIndex === 1 ? '2px solid blue' : 'none',
+                fontSize: '0.75rem', // Small font size
+                padding: '4px 8px', // Reduced padding
+                transition: 'font-size 0.3s ease', // Smooth transition
+              }}
+            >
+              {hoverIndex === 1 && <DashboardIcon sx={{ marginRight: 0.5, fontSize: '1rem' }} />}
+              User Dashboard
+            </Button>
+          </>
+        )}
+        <Box sx={{ flexGrow: 1 }} />
+        <Button
+          variant="outlined"
+          size="small"
+          startIcon={isDepartment ? <DepartmentIcon /> : <UserIcon />}
+          onClick={toggleDepartmentUser}
+          sx={{ marginRight: 2, padding: '4px 8px', fontSize: '0.75rem' }} // Small font size and padding
+        >
+          {isDepartment ? 'User' : 'Department'}
+        </Button>
+        <IconButton
+          edge="end"
+          color="inherit"
+          size="small"
+          onClick={handleMenu}
+        >
+          <AccountCircleIcon />
+        </IconButton>
+        <Menu
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>Profile</MenuItem>
+          <MenuItem onClick={handleClose}>My account</MenuItem>
+          <MenuItem onClick={handleClose}>Logout</MenuItem>
+        </Menu>
       </Toolbar>
     </AppBar>
   );

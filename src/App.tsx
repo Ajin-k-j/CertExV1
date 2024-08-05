@@ -4,6 +4,8 @@ import AllCertifications from './Pages/AllCertifications/AllCertifications';
 import { ToastContainer } from "react-toastify";
 import Navbar from './Components/Navbar/Navbar';
 import UserDashboard from './Pages/UserDashboard/UserDashboard';
+import Navbar from './Components/Navbar/Navbar'
+import Footer from './Components/Footer/Footer'
 function App() {
 
   return (
@@ -25,6 +27,7 @@ function App() {
         <Route path="/" element={<AllCertifications />} />
         <Route path="/user" element={<UserDashboard />} />
       </Routes>
+      <Footer />
     </Router>
     </>
   )
