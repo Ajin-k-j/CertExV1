@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from "react";
-import { Checkbox, FormControlLabel, TextField, FormGroup, Box } from "@mui/material";
+import { Checkbox, FormControlLabel, TextField, FormGroup, Box, Typography } from "@mui/material";
 
 interface CheckboxFilterProps {
   items: string[];
@@ -36,32 +36,46 @@ const CheckboxFilter: React.FC<CheckboxFilterProps> = ({
         size="small" // Reduce height
         sx={{
           marginBottom: "8px",
-          margin:"1px"
+          margin: "1px",
         }}
         fullWidth
       />
       <Box
         sx={{
           maxHeight: "120px",
+          height:"10rem",
           overflowY: "auto",
           borderRadius: "4px",
           marginTop: "8px",
         }}
       >
-        <FormGroup>
-          {filteredItems.map(item => (
-            <FormControlLabel
-              key={item}
-              control={
-                <Checkbox
-                  checked={selectedItems.includes(item)}
-                  onChange={() => handleChange(item)}
-                />
-              }
-              label={item}
-            />
-          ))}
-        </FormGroup>
+        {filteredItems.length === 0 ? (
+          <Typography
+            variant="body2"
+            sx={{
+              color: "#888",
+              textAlign: "center",
+              padding: "16px",
+            }}
+          >
+            No data available
+          </Typography>
+        ) : (
+          <FormGroup>
+            {filteredItems.map(item => (
+              <FormControlLabel
+                key={item}
+                control={
+                  <Checkbox
+                    checked={selectedItems.includes(item)}
+                    onChange={() => handleChange(item)}
+                  />
+                }
+                label={item}
+              />
+            ))}
+          </FormGroup>
+        )}
       </Box>
     </div>
   );

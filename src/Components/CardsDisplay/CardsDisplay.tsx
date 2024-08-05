@@ -1,6 +1,8 @@
 import React from "react";
 import ExamCards from "../ExamCards/ExamCards";
 import FilterChips from "../FilterChipComponent/FilterChip";
+import { InfoOutlined } from "@mui/icons-material"; // Import the icon
+import { Box, Typography } from "@mui/material";
 
 // Define types for filter chips
 type CertificationLevel = "Beginner" | "Intermediate" | "Expert";
@@ -38,11 +40,11 @@ const CardsDisplay: React.FC<CardsDisplayProps> = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "31rem", 
-        overflowY: "auto", 
-        padding: "10px", 
-        borderRadius: "8px", 
-        backgroundColor: "#fff", 
+        height: "31rem",
+        overflowY: "auto",
+        padding: "10px",
+        borderRadius: "8px",
+        backgroundColor: "#fff",
       }}
     >
       <FilterChips
@@ -53,11 +55,39 @@ const CardsDisplay: React.FC<CardsDisplayProps> = ({
         selectedCategories={selectedCategories}
         removeFilter={removeFilter}
       />
-      <div style={{ display: "flex", flexWrap: "wrap", marginTop: "10px" }}>
-        {data.map(cert => (
-          <ExamCards key={cert.id} {...cert} />
-        ))}
-      </div>
+      {data.length === 0 ? (
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          height="100%"
+          textAlign="center"
+        >
+          <InfoOutlined
+            sx={{
+              fontSize: 30,
+              color: "#888",
+              marginBottom: 2,
+            }}
+          />
+          <Typography
+            variant="h6"
+            sx={{
+              fontSize: "15px",
+              color: "#888",
+            }}
+          >
+            No certifications available
+          </Typography>
+        </Box>
+      ) : (
+        <div style={{ display: "flex", flexWrap: "wrap", marginTop: "10px" }}>
+          {data.map((cert) => (
+            <ExamCards key={cert.id} {...cert} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

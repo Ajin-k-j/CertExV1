@@ -81,64 +81,70 @@ const NominationFormModal: React.FC<NominationFormModalProps> = ({
   const maxDate = financialYear ? new Date(financialYear.to_date).toISOString().slice(0, 7) : currentMonth;
 
   return (
-    <>
-      <Dialog
-        open={open}
-        onClose={onClose}
-        PaperProps={{
-          sx: {
-            borderRadius: "10px",
-            padding: "10px",
-            minWidth: "300px",
-          },
-        }}
-      >
-        <DialogTitle>Nominate for {certificationName}</DialogTitle>
-        <DialogContent>
-          <Typography variant="subtitle1" gutterBottom>
-            Please fill in the following details to nominate yourself for this
-            certification.
-          </Typography>
-          <TextField
-            autoFocus
-            margin="dense"
-            label="Planned Exam Month"
-            type="month"
-            fullWidth
-            variant="outlined"
-            InputLabelProps={{ shrink: true }}
-            value={plannedExamMonth}
-            onChange={(e) => setPlannedExamMonth(e.target.value)}
-            required
-            InputProps={{ 
-              inputProps: { 
-                min: minDate, 
-                max: maxDate 
-              } 
-            }} // Set the min and max dates based on financial year
-          />
-          <TextField
-            margin="dense"
-            label="What motivates you to take this certification?"
-            type="text"
-            fullWidth
-            variant="outlined"
-            multiline
-            rows={4}
-            placeholder="This will be reviewed by the Department head and L&D."
-            value={motivation}
-            onChange={(e) => setMotivation(e.target.value)}
-            required
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={onClose}>Cancel</Button>
-          <Button onClick={handleSubmit} color="primary" variant="contained">
-            Submit
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      PaperProps={{
+        sx: {
+          borderRadius: "10px",
+          padding: "10px",
+          minWidth: "300px",
+        },
+      }}
+    >
+      <DialogTitle>
+        Nominate for{" "}
+        <Typography
+          component="span"
+          sx={{ color: "#1976d2", fontWeight: "bold", fontSize: "1.2rem" }} // Highlight color
+        >
+          {certificationName}
+        </Typography>
+      </DialogTitle>
+      <DialogContent>
+        <Typography variant="subtitle1" gutterBottom>
+          Please fill in the following details to nominate yourself for this
+          certification.
+        </Typography>
+        <TextField
+          autoFocus
+          margin="dense"
+          label="Planned Exam Month"
+          type="month"
+          fullWidth
+          variant="outlined"
+          InputLabelProps={{ shrink: true }}
+          value={plannedExamMonth}
+          onChange={(e) => setPlannedExamMonth(e.target.value)}
+          required
+          InputProps={{ 
+            inputProps: { 
+              min: minDate, 
+              max: maxDate 
+            } 
+          }} // Set the min and max dates based on financial year
+        />
+        <TextField
+          margin="dense"
+          label="What motivates you to take this certification?"
+          type="text"
+          fullWidth
+          variant="outlined"
+          multiline
+          rows={4}
+          placeholder="This will be reviewed by the Department head and L&D."
+          value={motivation}
+          onChange={(e) => setMotivation(e.target.value)}
+          required
+        />
+      </DialogContent>
+      <DialogActions>
+        <Button onClick={onClose}>Cancel</Button>
+        <Button onClick={handleSubmit} color="primary" variant="contained">
+          Submit
+        </Button>
+      </DialogActions>
+    </Dialog>
   );
 };
 

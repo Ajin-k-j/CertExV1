@@ -6,6 +6,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Chip from "@mui/material/Chip";
 
 // Define the prop types
 interface ExamCardViewModalProps {
@@ -62,7 +63,18 @@ const ExamCardViewModal: React.FC<ExamCardViewModalProps> = ({
             <strong>Description:</strong> {description}
           </Typography>
           <Typography variant="subtitle1" gutterBottom>
-            <strong>Tags:</strong> {tags.join(", ")}
+            <strong>Tags:</strong> {tags.map((tag, index) => (
+              <Chip
+                key={index}
+                label={tag}
+                sx={{
+                  fontSize: 10,
+                  height: "1.1rem",
+                  margin: ".11rem",
+                  backgroundColor: `hsl(${index * 40}, 70%, 80%)`,
+                }}
+              />
+            ))}
           </Typography>
           <Typography variant="subtitle1" gutterBottom>
             <a href={officialLink} target="_blank" rel="noopener noreferrer">
