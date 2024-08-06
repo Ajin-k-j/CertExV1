@@ -54,13 +54,15 @@ const LeftFilter: React.FC<LeftFilterProps> = ({
     <Box
       sx={{
         backgroundColor: "#ffffff", // Set background color to white
-        padding: 3, // Optional: Add padding for better appearance
+        padding: 2,
+        paddingLeft:3,
+        paddingRight: 3, 
         borderRadius: 1, // Optional: Add rounded corners
         height: "auto", // Ensure it takes full height of the parent container
       }}
     >
       <div>
-        <Typography variant="h5" component="div" style={{ display: "inline" }}>
+        <Typography variant="h6" component="div" style={{ display: "inline" }}>
           Filters
         </Typography>
         <Typography
@@ -70,7 +72,7 @@ const LeftFilter: React.FC<LeftFilterProps> = ({
             color: "blue",
             marginLeft: "8px",
             cursor: "pointer",
-            paddingLeft:"2rem"
+            paddingLeft:"1.5rem"
           }}
           onClick={handleClearAll}
         >
@@ -78,7 +80,7 @@ const LeftFilter: React.FC<LeftFilterProps> = ({
         </Typography>
       </div>
       <div>
-        <h3>Providers</h3>
+        <h4>Providers</h4>
         <CheckboxFilter
           items={providers}
           selectedItems={selectedProviders}
@@ -87,7 +89,7 @@ const LeftFilter: React.FC<LeftFilterProps> = ({
         />
       </div>
       <div>
-        <h3>Categories</h3>
+        <h4>Categories</h4>
         <CheckboxFilter
           items={categories}
           selectedItems={selectedCategories}

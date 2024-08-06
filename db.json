@@ -218,5 +218,25 @@
     "fundamentals",
     "engineering",
     "AI"
+  ],
+  "exams": [
+    {
+      "title": "AWS Certified Solutions Architect – Associate",
+      "description": "Dive deep into the world of cybersecurity with our comprehensive course designed for beginners and professionals alike",
+      "date": "12/07/2024",
+      "level": "Beginner"
+    },
+    {
+      "title": "AWS Certified Solutions Architect – Associate",
+      "description": "Explore data analysis, machine learning, and predictive analytics in our intermediate course.",
+      "date": "03/08/2024",
+      "level": "Intermediate"
+    },
+    {
+      "title": "AWS Certified Solutions Architect – Associate",
+      "description": "Master the skills needed to design and deploy complex cloud solutions.",
+      "date": "08/05/2024",
+      "level": "Expert"
+    }
   ]
 }

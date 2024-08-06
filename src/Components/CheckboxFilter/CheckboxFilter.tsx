@@ -36,14 +36,15 @@ const CheckboxFilter: React.FC<CheckboxFilterProps> = ({
         size="small" // Reduce height
         sx={{
           marginBottom: "8px",
-          margin: "1px",
+          margin: "0",
+          fontSize: "0.875rem", // Reduce font size
         }}
         fullWidth
       />
       <Box
         sx={{
           maxHeight: "120px",
-          height:"10rem",
+          height: "19vh",
           overflowY: "auto",
           borderRadius: "4px",
           marginTop: "8px",
@@ -56,6 +57,7 @@ const CheckboxFilter: React.FC<CheckboxFilterProps> = ({
               color: "#888",
               textAlign: "center",
               padding: "16px",
+              fontSize: "0.75rem", // Reduce font size
             }}
           >
             No data available
@@ -69,9 +71,20 @@ const CheckboxFilter: React.FC<CheckboxFilterProps> = ({
                   <Checkbox
                     checked={selectedItems.includes(item)}
                     onChange={() => handleChange(item)}
+                    sx={{
+                      '& .MuiSvgIcon-root': { fontSize: 20 }, // Reduce checkbox size
+                    }}
                   />
                 }
-                label={item}
+                label={
+                  <Typography
+                    sx={{
+                      fontSize: "0.75rem", // Reduce font size of the label
+                    }}
+                  >
+                    {item}
+                  </Typography>
+                }
               />
             ))}
           </FormGroup>

@@ -40,9 +40,10 @@ const CardsDisplay: React.FC<CardsDisplayProps> = ({
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "31rem",
+        height: "76vh",
         overflowY: "auto",
         padding: "10px",
+        paddingTop:"1px",
         borderRadius: "8px",
         backgroundColor: "#fff",
       }}

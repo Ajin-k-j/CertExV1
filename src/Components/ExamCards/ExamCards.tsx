@@ -65,8 +65,8 @@ const ExamCards: React.FC<ExamCardsProps> = ({
       <Card
         className={styles.card}
         sx={{
-          height: "12.5rem", // Fixed height for uniformity
-          width: "14.1rem",
+          height: "35vh", // Fixed height for uniformity
+          width: "18.4vw",
           borderTop: `4px solid ${borderColor}`,
           borderLeft: "1px solid rgb(146, 145, 145)",
           borderRight: "1px solid rgb(146, 145, 145)",

@@ -4,7 +4,6 @@ import AllCertifications from './Pages/AllCertifications/AllCertifications';
 import { ToastContainer } from "react-toastify";
 import Navbar from './Components/Navbar/Navbar';
 import UserDashboard from './Pages/UserDashboard/UserDashboard';
-import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
 function App() {
 
