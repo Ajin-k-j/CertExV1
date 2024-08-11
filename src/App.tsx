@@ -4,7 +4,8 @@ import AllCertifications from './Pages/AllCertifications/AllCertifications';
 import { ToastContainer } from "react-toastify";
 import Navbar from './Components/Navbar/Navbar';
 import UserDashboard from './Pages/UserDashboard/UserDashboard';
-import Footer from './Components/Footer/Footer'
+import Footer from './Components/Footer/Footer';
+
 function App() {
 
   return (
@@ -22,6 +23,7 @@ function App() {
         draggable 
         pauseOnHover 
       />
+      
       <Routes>
         <Route path="/" element={<AllCertifications />} />
         <Route path="/user" element={<UserDashboard />} />
